@@ -6,7 +6,7 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-void OpenDB() async {
+Future OpenDB() async {
   WidgetsFlutterBinding.ensureInitialized();
   final database = openDatabase(join(await getDatabasesPath(), 'swimmersDB.db'),
       onCreate: (db, version) {
@@ -29,7 +29,8 @@ class HomePage extends StatelessWidget {
               const Text('Clicca un tasto'),
               RaisedButton(
                 onPressed: () {
-                  Navigator.of(context).pushNamed('/screenVisualizza');
+                  Navigator.of(context).pushNamed('/screenVisualizza',
+                      arguments: {Future: OpenDB()});
                 },
                 child: Text('Visualizza i dati'),
                 color: Colors.amber,

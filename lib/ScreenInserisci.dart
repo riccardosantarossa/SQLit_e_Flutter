@@ -10,12 +10,10 @@ import 'Swimmer.dart';
 import 'main.dart';
 
 class ScreenInserisci extends StatelessWidget {
-  Future<void> insertSwimmer(Swimmer swimmer) async {
-    //final db = await database;
-  }
-
   @override
   Widget build(BuildContext context) {
+    Future<void> insertSwimmer(Swimmer swimmer) async {}
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagina di inserimento dei dati'),
