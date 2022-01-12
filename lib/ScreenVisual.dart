@@ -7,6 +7,7 @@ import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'Swimmer.dart';
+import 'dbOperations.dart';
 
 class ScreenVisual extends StatelessWidget {
   @override
@@ -14,6 +15,14 @@ class ScreenVisual extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagina di visualizzazione dei dati'),
+      ),
+      body: Center(
+        child: RaisedButton(
+            child: Text('Visualizza i record della tabella'),
+            onPressed: () {
+              dbOperations.showRecords();
+              dbOperations.printData();
+            }),
       ),
     );
   }

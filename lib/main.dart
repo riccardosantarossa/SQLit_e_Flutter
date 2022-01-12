@@ -27,6 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.amber,
       ),
       home: HomePage(),
+      //mappa delle rotte
       routes: {
         '/screenVisualizza': (_) => ScreenVisual(),
         '/screenInserisci': (_) => ScreenInserisci(),

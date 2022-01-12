@@ -20,6 +20,7 @@ class HomePage extends StatelessWidget {
             children: <Widget>[
               const Text('Clicca un tasto'),
               RaisedButton(
+                //Tasto che porta alla schermata di visualizzazione
                 onPressed: () {
                   Navigator.of(context).pushNamed('/screenVisualizza');
                 },
@@ -27,6 +28,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.amber,
               ),
               RaisedButton(
+                //Tasto che porta alla schermata di inserimento
                 onPressed: () {
                   Navigator.of(context).pushNamed('/screenInserisci');
                 },
@@ -34,6 +36,7 @@ class HomePage extends StatelessWidget {
                 color: Colors.amber,
               ),
               RaisedButton(
+                //Tasto che porta alla schermata di cancellazione
                 onPressed: () {
                   Navigator.of(context).pushNamed('/screenCancella');
                 },

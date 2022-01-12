@@ -7,12 +7,14 @@ import 'dart:async';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'Swimmer.dart';
-import 'main.dart';
+import 'dbOperations.dart';
 
 class ScreenInserisci extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Future<void> insertSwimmer(Swimmer swimmer) async {}
+    //Creato il record da inserire nella tabella
+    var sw1 = Swimmer(
+        id_swimmer: 1, swimmer_name: 'Michael Phelps', age: 36, nation: 'USA');
 
     return Scaffold(
       appBar: AppBar(
@@ -20,7 +22,11 @@ class ScreenInserisci extends StatelessWidget {
       ),
       body: Center(
         child: RaisedButton(
-            child: Text('Inserisci il nuotatore'), onPressed: () {}),
+            child: Text('Inserisci il nuotatore'),
+            //Alla pressione del bottone viene inserito nel database il record del nuotatore creato in precedenza
+            onPressed: () {
+              dbOperations.insertRecord(sw1);
+            }),
       ),
     );
   }
