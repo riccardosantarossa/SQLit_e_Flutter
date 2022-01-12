@@ -6,10 +6,13 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'Swimmer.dart';
 import 'package:sqflite/sqflite.dart';
+import 'dbOperations.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    dbOperations.createDB();
+
     return Scaffold(
         appBar: AppBar(
           title: const Text('SQLite e Flutter'),
