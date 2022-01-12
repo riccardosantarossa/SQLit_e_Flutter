@@ -11,6 +11,7 @@ import 'dbOperations.dart';
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    //Creo il DB all'avvio della homepage
     dbOperations.createDB();
 
     return Scaffold(
