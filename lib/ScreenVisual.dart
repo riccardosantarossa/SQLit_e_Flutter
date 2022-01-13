@@ -20,7 +20,6 @@ class ScreenVisual extends StatelessWidget {
         child: RaisedButton(
             child: Text('Visualizza i record della tabella'),
             onPressed: () {
-              dbOperations.showRecords();
               dbOperations.printData();
             }),
       ),
