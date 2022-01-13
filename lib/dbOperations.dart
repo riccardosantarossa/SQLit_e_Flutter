@@ -49,10 +49,10 @@ class dbOperations {
     //Ritorna la lista creata e associa ad ogni campo il rispettivo valore per poi stamparlo
     return List.generate(record.length, (index) {
       return Swimmer(
-          id_swimmer: record[index]['id'],
-          swimmer_name: record[index]['nome'],
-          age: record[index]['eta'],
-          nation: record[index]['nazionalita']);
+          id_swimmer: record[index]['id_swimmer'],
+          swimmer_name: record[index]['swimmer_name'],
+          age: record[index]['age'],
+          nation: record[index]['nation']);
     });
   }
 
