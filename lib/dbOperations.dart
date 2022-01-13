@@ -56,6 +56,7 @@ class dbOperations {
     });
   }
 
+  //Per ora stampa su console
   static void printData() async {
     print(await showRecords());
   }
