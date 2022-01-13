@@ -3,6 +3,7 @@
 // ignore_for_file: file_names, camel_case_types, non_constant_identifier_names, avoid_print
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'Swimmer.dart';
@@ -60,15 +61,5 @@ class dbOperations {
   //Per ora stampa su console
   static void printData() async {
     final List<Swimmer> swimmerList = await showRecords();
-    ListView.builder(
-        itemCount: swimmerList.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-            height: 50,
-            child: Center(
-              child: Text('${swimmerList[index]}'),
-            ),
-          );
-        });
   }
 }

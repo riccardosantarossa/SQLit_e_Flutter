@@ -14,7 +14,7 @@ class ScreenVisual extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pagina di visualizzazione dei dati'),
+        title: Text('Pagina di visualizzazione'),
       ),
       body: Center(
         child: RaisedButton(
