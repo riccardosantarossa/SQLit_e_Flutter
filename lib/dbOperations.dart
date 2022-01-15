@@ -37,7 +37,7 @@ class dbOperations {
   }
 
   //Funzione che mostra i record della tabella
-  static Future<List<Swimmer>> showRecords() async {
+  static Future<List<Swimmer>> generateRecords() async {
     //Apre il database
     final database =
         openDatabase(join(await getDatabasesPath(), 'swimmersDB.db'));
@@ -58,7 +58,8 @@ class dbOperations {
     });
   }
 
-  /*static void getList() async {
-    List<Swimmer> displayList = await showRecords();
-  }*/
+  static void printTest() async {
+    final List<Swimmer> test = await generateRecords();
+    print(test);
+  }
 }
