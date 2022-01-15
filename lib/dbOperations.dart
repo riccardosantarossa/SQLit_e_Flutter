@@ -1,6 +1,6 @@
 //SANTAROSSA RICCARDO 5BIA 01/01/2022
 
-// ignore_for_file: file_names, camel_case_types, non_constant_identifier_names, avoid_print
+// ignore_for_file: file_names, camel_case_types, non_constant_identifier_names, avoid_print, unused_import
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -58,8 +58,7 @@ class dbOperations {
     });
   }
 
-  //Per ora stampa su console
-  static void printData() async {
-    final List<Swimmer> swimmerList = await showRecords();
-  }
+  /*static void getList() async {
+    List<Swimmer> displayList = await showRecords();
+  }*/
 }

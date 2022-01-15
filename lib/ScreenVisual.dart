@@ -16,13 +16,7 @@ class ScreenVisual extends StatelessWidget {
       appBar: AppBar(
         title: Text('Pagina di visualizzazione'),
       ),
-      body: Center(
-        child: RaisedButton(
-            child: Text('Visualizza i record della tabella'),
-            onPressed: () {
-              dbOperations.printData();
-            }),
-      ),
+      //body: ;
     );
   }
 }
