@@ -12,18 +12,22 @@ import 'dbOperations.dart';
 class ScreenVisual extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    dbOperations.printTest();
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagina di visualizzazione'),
       ),
+      //Builder della visualizzazione (dati di tipo Future)
       body: FutureBuilder<List<Swimmer>>(
+          //Acquisisco l'output della funzione che genera i record
           future: dbOperations.generateRecords(),
           builder: (context, future) {
+            //Se la lista è vuota non stampo nulla, ma faccio solo il container vuoto
             if (!future.hasData)
               return Container();
             else {
+              //Acquisisco i dati della lista (che sono di tipo Future)
               List<Swimmer>? displayList = future.data;
+              //Costruisco la ListView
               return ListView.builder(
                 itemCount: displayList!.length,
                 itemBuilder: (context, index) {

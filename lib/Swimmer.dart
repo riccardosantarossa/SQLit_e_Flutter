@@ -7,6 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
+//Entità buotatore con i suoi attributi
 class Swimmer {
   final int id_swimmer;
   final String swimmer_name;
@@ -19,6 +20,7 @@ class Swimmer {
       required this.age,
       required this.nation});
 
+  //Mappatura con associazione chiave-valore
   Map<String, dynamic> toMap() {
     return {
       'id_swimmer': id_swimmer,
@@ -28,8 +30,9 @@ class Swimmer {
     };
   }
 
+  //Funzione che stampa gli attributi sotto forma di stringa
   @override
   String toString() {
-    return 'Swimmer{id_swimmer: $id_swimmer, swimmer_name: $swimmer_name, age: $age, nation: $nation}';
+    return 'ID: $id_swimmer  Nome: $swimmer_name Età: $age Nazionalità: $nation \n';
   }
 }
