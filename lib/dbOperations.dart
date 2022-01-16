@@ -3,7 +3,6 @@
 // ignore_for_file: file_names, camel_case_types, non_constant_identifier_names, avoid_print, unused_import
 
 import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';

@@ -7,7 +7,7 @@ import 'package:flutter/widgets.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
-//Entità buotatore con i suoi attributi
+//Entità nuotatore con i suoi attributi
 class Swimmer {
   final int id_swimmer;
   final String swimmer_name;

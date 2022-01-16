@@ -27,6 +27,7 @@ class ScreenInserisci extends StatelessWidget {
       return sw1;
     }
 
+    //Pulisce le caselle di testo
     void blanktext() {
       idController.text = "";
       nameController.text = "";
@@ -85,6 +86,7 @@ class ScreenInserisci extends StatelessWidget {
               //Alla pressione del bottone viene inserito nel database il record del nuotatore creato in precedenza
               onPressed: () {
                 dbOperations.insertRecord(createRecord());
+                //Pulisce le caselle di testo
                 blanktext();
                 //Dà un feedback all'utente che ha inserito il record
                 ScaffoldMessenger.of(context).showSnackBar(

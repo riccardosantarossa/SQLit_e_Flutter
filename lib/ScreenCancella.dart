@@ -13,8 +13,7 @@ class ScreenCancella extends StatelessWidget {
 
   //Funzione che converte il testo in intero da passare alla funzione che cancella il record
   int getID() {
-    final text = txtController.text;
-    final data = int.parse(text);
+    final data = int.parse(txtController.text);
     return data;
   }
 
@@ -43,7 +42,7 @@ class ScreenCancella extends StatelessWidget {
                 child: Text('Cancella il record'),
                 //Alla pressione del pulsante viene eseguita la funzione che cancella il record con l'ID corrispondente
                 onPressed: () {
-                  //Cancella il record passato
+                  //Cancella il record passato-
                   dbOperations.deleteRecord(getID());
                   txtController.text = "";
                   //Dà un feedback all'utente che ha cancellato il record
