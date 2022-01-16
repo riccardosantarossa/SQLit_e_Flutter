@@ -43,8 +43,10 @@ class ScreenCancella extends StatelessWidget {
                 child: Text('Cancella il record'),
                 //Alla pressione del pulsante viene eseguita la funzione che cancella il record con l'ID corrispondente
                 onPressed: () {
+                  //Cancella il record passato
                   dbOperations.deleteRecord(getID());
                   txtController.text = "";
+                  //Dà un feedback all'utente che ha cancellato il record
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text('Record cancellato correttamente'),

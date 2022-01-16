@@ -86,6 +86,7 @@ class ScreenInserisci extends StatelessWidget {
               onPressed: () {
                 dbOperations.insertRecord(createRecord());
                 blanktext();
+                //Dà un feedback all'utente che ha inserito il record
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(
                     content: Text('Record inserito correttamente'),
