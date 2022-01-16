@@ -86,6 +86,12 @@ class ScreenInserisci extends StatelessWidget {
               onPressed: () {
                 dbOperations.insertRecord(createRecord());
                 blanktext();
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text('Record inserito correttamente'),
+                    duration: Duration(seconds: 1),
+                  ),
+                );
               }),
         ],
       )),

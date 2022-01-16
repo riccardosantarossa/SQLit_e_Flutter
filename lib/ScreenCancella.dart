@@ -45,6 +45,12 @@ class ScreenCancella extends StatelessWidget {
                 onPressed: () {
                   dbOperations.deleteRecord(getID());
                   txtController.text = "";
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text('Record cancellato correttamente'),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
                 }),
           ],
         )));
