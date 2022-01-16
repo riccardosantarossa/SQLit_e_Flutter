@@ -10,24 +10,85 @@ import 'Swimmer.dart';
 import 'dbOperations.dart';
 
 class ScreenInserisci extends StatelessWidget {
+  final idController = TextEditingController();
+  final nameController = TextEditingController();
+  final ageController = TextEditingController();
+  final nationController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
-    //Creato il record da inserire nella tabella
-    var sw1 = Swimmer(
-        id_swimmer: 1, swimmer_name: 'Michael Phelps', age: 36, nation: 'USA');
+    //Creo il record usando i dati raccolti dalle textfield
+    Swimmer createRecord() {
+      var sw1 = Swimmer(
+          id_swimmer: int.parse(idController.text),
+          swimmer_name: nameController.text,
+          age: int.parse(ageController.text),
+          nation: nationController.text);
+      return sw1;
+    }
+
+    void blanktext() {
+      idController.text = "";
+      nameController.text = "";
+      ageController.text = "";
+      nationController.text = "";
+    }
 
     return Scaffold(
       appBar: AppBar(
         title: Text('Pagina di inserimento dei dati'),
       ),
       body: Center(
-        child: RaisedButton(
-            child: Text('Inserisci il nuotatore'),
-            //Alla pressione del bottone viene inserito nel database il record del nuotatore creato in precedenza
-            onPressed: () {
-              dbOperations.insertRecord(sw1);
-            }),
-      ),
+          child: Column(
+        children: <Widget>[
+          //Includo la textfield in un contenitore
+          SizedBox(
+            width: 300,
+            child: TextField(
+              //Associo il controller
+              controller: idController,
+              //Suggerisco all'utente cosa inserire
+              decoration: InputDecoration(labelText: 'Inserire ID'),
+            ),
+          ),
+          //Includo la textfield in un contenitore
+          SizedBox(
+            width: 300,
+            child: TextField(
+              //Associo il controller
+              controller: nameController,
+              decoration: InputDecoration(labelText: 'Inserire nome'),
+            ),
+          ),
+          //Includo la textfield in un contenitore
+          SizedBox(
+            width: 300,
+            child: TextField(
+              //Associo il controller
+              controller: ageController,
+              //Suggerisco all'utente cosa inserire
+              decoration: InputDecoration(labelText: 'Inserire età'),
+            ),
+          ),
+          //Includo la textfield in un contenitore
+          SizedBox(
+            width: 300,
+            child: TextField(
+              //Associo il controller
+              controller: nationController,
+              //Suggerisco all'utente cosa inserire
+              decoration: InputDecoration(labelText: 'Inserire nazionalità'),
+            ),
+          ),
+          RaisedButton(
+              child: Text('Inserisci il nuotatore'),
+              //Alla pressione del bottone viene inserito nel database il record del nuotatore creato in precedenza
+              onPressed: () {
+                dbOperations.insertRecord(createRecord());
+                blanktext();
+              }),
+        ],
+      )),
     );
   }
 }

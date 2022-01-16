@@ -9,19 +9,44 @@ import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 
 class ScreenCancella extends StatelessWidget {
+  final txtController = TextEditingController();
+
+  //Funzione che converte il testo in intero da passare alla funzione che cancella il record
+  int getID() {
+    final text = txtController.text;
+    final data = int.parse(text);
+    return data;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Pagina di Cancellazione dei dati'),
+          title: Text('Pagina di Cancellazione'),
         ),
         body: Center(
-          child: RaisedButton(
-              child: Text('Cancella il record'),
-              //Alla pressione del pulsante viene eseguita la funzione che cancella il record con l'ID corrispondente
-              onPressed: () {
-                dbOperations.deleteRecord(1);
-              }),
-        ));
+            child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            SizedBox(
+              width: 300.0,
+              child: TextField(
+                //Associo il controller alla textfield per recuperare i dati inseriti
+                controller: txtController,
+                //Faccio capire all'utente cosa deve inserire
+                decoration: InputDecoration(
+                    labelText: 'Inserire ID del record da cancellare'),
+              ),
+            ),
+            RaisedButton(
+                color: Colors.amber,
+                child: Text('Cancella il record'),
+                //Alla pressione del pulsante viene eseguita la funzione che cancella il record con l'ID corrispondente
+                onPressed: () {
+                  dbOperations.deleteRecord(getID());
+                  txtController.text = "";
+                }),
+          ],
+        )));
   }
 }
