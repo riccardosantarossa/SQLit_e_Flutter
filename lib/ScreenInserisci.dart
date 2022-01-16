@@ -36,7 +36,7 @@ class ScreenInserisci extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Pagina di inserimento dei dati'),
+        title: Text('Pagina di inserimento '),
       ),
       body: Center(
           child: Column(
