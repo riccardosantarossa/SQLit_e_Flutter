@@ -2,6 +2,8 @@
 
 // ignore_for_file: file_names, camel_case_types, non_constant_identifier_names, avoid_print, unused_import
 
+import 'dart:ffi';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:path/path.dart';
@@ -58,8 +60,19 @@ class dbOperations {
     });
   }
 
-  static void printTest() async {
-    final List<Swimmer> test = await generateRecords();
-    print(test);
+  //Cancella il record tramite l'ID passato per parametro
+  static Future<void> deleteRecord(int id) async {
+    //Apre il database
+    final database =
+        openDatabase(join(await getDatabasesPath(), 'swimmersDB.db'));
+    //Connette al database
+    final data = await database;
+    //Cancella dalla tabella il record con l'ID passato per parametro
+    await data.delete(
+      'swimmers',
+      //Clausola WHERE per filtrare con l'ID
+      where: 'id_swimmer = ?',
+      whereArgs: [id],
+    );
   }
 }
