@@ -18,7 +18,7 @@ class dbOperations {
       onCreate: (db, version) {
         //Esegue la query SQL per creare la tabella
         return db.execute(
-          'CREATE TABLE swimmers(id_swimmer INTEGER PRYMARY KEY AUTO_INCREMENT, swimmer_name TEXT, age INTEGER, nation TEXT)',
+          'CREATE TABLE swimmers(id_swimmer INTEGER PRYMARY KEY NOT NULL, swimmer_name TEXT, age INTEGER, nation TEXT)',
         );
       },
       version: 1,
