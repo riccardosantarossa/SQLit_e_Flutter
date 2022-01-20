@@ -35,7 +35,6 @@ class dbOperations {
     final data = await database;
     //Inserisce un record di tipo nuotatore nella tabella swimmers, rimpiazza eventuali doppioni
     var snapshot = await data.insert('swimmers', swimmer.toMap(),
-        //conflictColumn: "id_swimmer",
         conflictAlgorithm: ConflictAlgorithm.replace);
     // ignore: unnecessary_cast
     return snapshot as int;
