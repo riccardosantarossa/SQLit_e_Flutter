@@ -36,6 +36,7 @@ class dbOperations {
     var snapshot = await data.insert('swimmers', swimmer.toMap(),
         //conflictColumn: "id_swimmer",
         conflictAlgorithm: ConflictAlgorithm.replace);
+    // ignore: unnecessary_cast
     return snapshot as int;
   }
 
