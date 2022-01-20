@@ -9,7 +9,7 @@ import 'package:sqflite/sqflite.dart';
 
 //Entità nuotatore con i suoi attributi
 class Swimmer {
-  final int id_swimmer;
+  final int? id_swimmer;
   final String swimmer_name;
   final int age;
   final String nation;

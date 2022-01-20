@@ -18,7 +18,7 @@ class dbOperations {
       onCreate: (db, version) {
         //Esegue la query SQL per creare la tabella
         return db.execute(
-          'CREATE TABLE swimmers(id_swimmer INTEGER PRYMARY KEY NOT NULL, swimmer_name TEXT, age INTEGER, nation TEXT)',
+          'CREATE TABLE swimmers(id_swimmer INTEGER PRIMARY KEY AUTOINCREMENT, swimmer_name TEXT, age INTEGER, nation TEXT)',
         );
       },
       version: 1,
@@ -26,15 +26,17 @@ class dbOperations {
   }
 
   //Funzione di inserimento dei record
-  static Future<void> insertRecord(Swimmer swimmer) async {
+  static Future<int?> insertRecord(Swimmer swimmer) async {
     //Apre il database
     final database =
         openDatabase(join(await getDatabasesPath(), 'swimmersDB.db'));
     //Connette al database
     final data = await database;
     //Inserisce un record di tipo nuotatore nella tabella swimmers, rimpiazza eventuali doppioni
-    await data.insert('swimmers', swimmer.toMap(),
+    var snapshot = await data.insert('swimmers', swimmer.toMap(),
+        //conflictColumn: "id_swimmer",
         conflictAlgorithm: ConflictAlgorithm.replace);
+    return snapshot as int;
   }
 
   //Funzione che mostra i record della tabella

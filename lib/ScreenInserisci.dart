@@ -20,7 +20,9 @@ class ScreenInserisci extends StatelessWidget {
     //Creo il record usando i dati raccolti dalle textfield
     Swimmer createRecord() {
       var sw1 = Swimmer(
-          id_swimmer: int.parse(idController.text),
+          id_swimmer: idController.text.length > 0
+              ? int.parse(idController.text)
+              : null,
           swimmer_name: nameController.text,
           age: int.parse(ageController.text),
           nation: nationController.text);
@@ -85,16 +87,18 @@ class ScreenInserisci extends StatelessWidget {
               child: Text('Inserisci il nuotatore'),
               //Alla pressione del bottone viene inserito nel database il record del nuotatore creato in precedenza
               onPressed: () {
-                dbOperations.insertRecord(createRecord());
-                //Pulisce le caselle di testo
-                blanktext();
-                //Dà un feedback all'utente che ha inserito il record
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                    content: Text('Record inserito correttamente'),
-                    duration: Duration(seconds: 1),
-                  ),
-                );
+                dbOperations.insertRecord(createRecord()).then((value) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content:
+                          Text("Inserito record con id: " + value.toString()),
+                      duration: Duration(seconds: 1),
+                    ),
+                  );
+                  //Pulisce le caselle di testo
+                  blanktext();
+                  //Dà un feedback all'utente che ha inserito il record
+                });
               }),
         ],
       )),
