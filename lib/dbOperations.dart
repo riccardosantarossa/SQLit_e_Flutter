@@ -12,6 +12,7 @@ import 'Swimmer.dart';
 class dbOperations {
   //Crea il database e la tabella nuotatori
   static void createDB() async {
+    // ignore: unused_local_variable
     final database = openDatabase(
       //Localizza il Database
       join(await getDatabasesPath(), 'swimmersDB.db'),
